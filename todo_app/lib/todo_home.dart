@@ -50,9 +50,9 @@ class _HomePageState extends State<HomePage> {
         "title": "Learning Machine Learing for final test",
         "project": "Study at school",
         "icon": Icons.book,
-        "color": Colors.purpleAccent,
+        "color": Colors.purpleAccent.shade100,
         "progress": 0.4,
-        "progressColor": Colors.purpleAccent.shade100,
+        "progressColor": Colors.purpleAccent.shade200,
       },
   ];
 
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TodayTaskCard(progressPercent: 100),
+            TodayTaskCard(progressPercent: 85),
             const SizedBox(height: 25),
             _buildSectionTitle("In Progress", inProgressTasks.length.toString()),
             const SizedBox(height: 15),
@@ -332,7 +332,7 @@ class _HomePageState extends State<HomePage> {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
       notchMargin: 8.0,
-      color: Colors.white,
+      color: AppColors.lightPurpleBackground,
       elevation: 10, 
       child: SizedBox( 
         height: 60.0,
@@ -341,8 +341,8 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             _buildBottomNavItem(Icons.home_filled, "Home", 0),
             _buildBottomNavItem(Icons.calendar_today_outlined, "Calendar", 1),
-            const SizedBox(width: 40), // Khoảng trống cho FAB
-            _buildBottomNavItem(Icons.document_scanner_outlined, "Docs", 2), // Giả sử icon này
+            const SizedBox(width: 40), 
+            _buildBottomNavItem(Icons.document_scanner_outlined, "Docs", 2), 
             _buildBottomNavItem(Icons.person_outline, "Profile", 3),
           ],
         ),
@@ -353,7 +353,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildBottomNavItem(IconData icon, String label, int index) {
     bool isSelected = _selectedIndex == index;
     return IconButton(
-      icon: Icon(icon, color: isSelected ? AppColors.primaryPurple : AppColors.lightText, size: 28),
+      icon: Icon(icon, color: isSelected ? AppColors.primaryPurple : Colors.white, size: 28),
       onPressed: () => _onItemTapped(index),
     );
   }
